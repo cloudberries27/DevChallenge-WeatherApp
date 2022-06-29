@@ -3,7 +3,6 @@ import React from 'react';
 import TodayForecast from './components/today';
 import WeekForecast from './components/week';
 import Features from './components/features';
-// https://open-meteo.com/en
 
 function App() {
   const [forecast, setForecast] = React.useState([])

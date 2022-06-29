@@ -41,7 +41,7 @@
 
 - Demo is above ^^
 - It was hard to find an API that didn't require you to create an account, BUT I FOUND IT!! 
-- I did have to adjust somethings because it didn't include some of the attributes, that were in the design. 
+- I did have to adjust somethings because it didn't include some of the attributes, that were in the design, like visibility. But I substituted with other stuff. 
 
 ### Built With
 
@@ -64,7 +64,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/cloudberries27/DevChallenge-CountryQuiz
+$ git clone https://github.com/cloudberries27/DevChallenge-WeatherApp
 # Install dependencies
 $ npm install
 # Run the app
@@ -77,6 +77,7 @@ $ npm start
 
 - [gh-pages](https://www.npmjs.com/package/gh-pages)
 - [Material Icon](https://fonts.google.com/icons)
+- [Weather API](https://open-meteo.com/en)
 
 ## Contact
 

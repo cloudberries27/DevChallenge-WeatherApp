@@ -1,38 +1,105 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+html, body, #root, .App{
+  height:100%;
+  width: 100%;
+  margin:0;
+  padding: 0;
+}
+button span{
+  cursor: inherit;
+}
+.App{
+  display: flex;
+  font-family: 'Raleway', sans-serif;;
+}
+.minor{
+  width: 30%;
+  background-color: #1e213a;
+  color: white;
+  text-align: center;
+}
+.minor-buttons{
+  padding: 2em;
+  display: flex;
+  justify-content: space-between;
+}
+.minor-button{
+  background-color: #6e707a;
+  border: none;
+  color:white;
+  padding: 5px 10px;
+  font-size: 16px;
+}
+.minor-button.exact{
+  border-radius: 50%;
+  padding: 10px;
+}
+.weather-icon{
+  display: block;
+  position: relative;
+  padding: 3em 0;
+}
+.weather-icon::after{
+  content: "";
+  background: url(./images/Cloud-background.png);
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.major{
+  width: 70%;
+  background-color: #100e1d;
+  color: white;
+}
+.degrees, .week-forecast, .features-page{
+  padding: 1em 5em;
+}
+.degrees{
+  display: flex;
+  justify-content: flex-end;
+}
+.degrees-button{
+  background-color: #585676;
+  color:white;
+  border:none;
+  padding: 1em;
+  border-radius: 50%;
+  margin: 10px;
+  font-weight: bold;
+  font-size: 16px;
+}
+.degrees-button.active{
+  background-color: #e7e7eb;
+  color: #110e3c;
+}
+.week-forecast{
+  display: flex;
+  justify-content: space-between;
+}
+.day{
+  background-color: #1e213a;
+  margin: 10px;
+  padding: 1em 2em;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.features{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 1em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.featured-item{
+  background-color: #1e213a;
+  padding: 2em;
+  text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

@@ -8,8 +8,11 @@ export default function week({forecast}){
                 return(
                     <div className='day' key={key}>
                         <p>{weekday.date}</p>
-                        <img style={{width: '75px'}} src={require("../images/"+weekday.condition+".png")} />
-                        <p>{weekday.maxTemp} / {weekday.minTemp}</p>
+                        <img style={{width: '100%', maxWidth: '75px', height:'auto'}} src={require("../images/"+weekday.condition+".png")} />
+                        <div className='temps'>
+                            <p>{parseInt(weekday.maxTemp)}&deg;C</p>
+                            <p className='min'>{parseInt(weekday.minTemp)}&deg;C </p>
+                        </div>
                     </div>
                 )
             })}

@@ -37,6 +37,72 @@ button span{
   border-radius: 50%;
   padding: 10px;
 }
+.overlay{
+  position: absolute;
+  width: 30%;
+  height: 100%;
+  background-color: #1e213a;
+  left: -30%;
+  transition: 0.3s;
+  transition-timing-function: ease-out;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+.overlay.active{
+  left: 0;
+  transition: 0.3s;
+  transition-timing-function: ease-in;
+}
+.search-location{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 80%;
+}
+.search-location div{
+  border: 1px solid white;
+  padding: 10px;
+}
+.search-location div span{
+  margin: 0 5px;
+  vertical-align: middle;
+  color: #585676;
+}
+.search-location input{
+  background: transparent;
+  outline: none;
+  border: none;
+  color:white;
+}
+
+.search-location button{
+  background-color: #3c47e9;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+}
+.city-button{
+  width: 80%;
+  padding: 1em;
+  margin: 1em auto;
+  background-color: transparent;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid transparent;
+  text-align: initial;
+}
+.city-button span{
+  color: transparent;
+}
+.city-button:hover{
+  border: 1px solid #585676;
+}
+.city-button:hover span{
+  color: #585676;
+}
 .weather-icon{
   display: block;
   position: relative;
@@ -156,5 +222,34 @@ span.direction{
   border-radius: 50%;
   font-size: 20px;
   vertical-align: middle;
+}
+
+@media screen and (max-width: 1000px) {
+  .App{
+    flex-direction: column;
+  }
+  .major, .minor{
+    width: 100%;
+  }
+  .week-forecast{
+    flex-wrap: wrap;
+  }
+  .degrees{
+    display: none;
+  }
+  .overlay{
+    width: 100%;
+    left: -100%;
+  }
+  .search-location div{
+    width: 80%;
+    text-align: initial;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .features{
+    grid-template-columns: auto;
+  }
 }
 

@@ -8,11 +8,28 @@ function App() {
   const [forecast, setForecast] = React.useState([])
   const [coordinates, setCoordinates] = React.useState({lat: '40.71', long: '-74.01'})
   const [location, setLocation] = React.useState('New York, USA')
+  const [tempType, setTempType] = React.useState('C')
   const [today, setToday] = React.useState({})
+
   React.useEffect(()=>{
     setForecast([])
     getWeatherData();
-  }, [])
+  }, [coordinates])
+
+  const getLocation = async () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(async (position)=>{
+        setCoordinates({lat: position.coords.latitude, long: position.coords.longitude})
+        await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=en`)
+        .then(response => response.json())
+        .then(data => {
+          setLocation(data.locality+ ', ' + data.countryCode)
+        })}
+      );
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  }
 
   const getWeatherData = async () => {
     await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${coordinates.lat}&longitude=${coordinates.long}&hourly=temperature_2m,relativehumidity_2m,pressure_msl,weathercode,cloudcover,windspeed_10m,winddirection_10m&daily=weathercode,temperature_2m_max,temperature_2m_min&windspeed_unit=mph&timeformat=unixtime&timezone=America%2FNew_York`)
@@ -48,13 +65,13 @@ function App() {
 
   const getWeatherType = (code) => {
     if(1 <= code && code <= 3){
-      return('LightCloud')
+      return('Light Cloud')
     }else if (45 <= code && code <= 48){
-      return('HeavyCloud')
+      return('Heavy Cloud')
     }else if (51 <= code && code <= 55){
-      return('LightRain')
+      return('Light Rain')
     }else if (61 <= code && code <= 65){
-      return('HeavyRain')
+      return('Heavy Rain')
     }else if (66 <= code && code  <= 67){
       return('Sleet')
     }else if (71 <= code && code <= 75){
@@ -72,13 +89,13 @@ function App() {
 
   return (
     <div className="App">
-      <TodayForecast today={today} location={location}/>
+      <TodayForecast today={today} location={location} tempType={tempType} getLocation={getLocation} setLocation={setLocation} setCoordinates={setCoordinates}/>
       <div className='major'>
         <div className='degrees'>
-          <button className='degrees-button active'>&deg;C</button>
-          <button className='degrees-button'>&deg;F</button>
+          <button className={tempType==='C' ? 'degrees-button active' : 'degrees-button'} onClick={()=>setTempType('C')}>&deg;C</button>
+          <button className={tempType==='F' ? 'degrees-button active' : 'degrees-button'} onClick={()=>setTempType('F')}>&deg;F</button>
         </div>
-        <WeekForecast forecast={forecast}/>
+        <WeekForecast forecast={forecast} tempType={tempType}/>
         <Features today={today}/>
       </div>
     </div>

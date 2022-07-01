@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function features({today}){
+export default function Features({today}){
     const getDirection = (angle) => {
         const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
         return directions[Math.round(angle / 45) % 8];

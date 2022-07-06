@@ -97,6 +97,7 @@ function App() {
         </div>
         <WeekForecast forecast={forecast} tempType={tempType}/>
         <Features today={today}/>
+        <p>created by <a style={{color:'white'}} href="https://devchallenges.io/portfolio/cloudberries27" target="_blank" rel="noreferrer">@cloudberries27</a> - devchallenges.io </p>
       </div>
     </div>
   );

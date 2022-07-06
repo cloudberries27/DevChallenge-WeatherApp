@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
-html, body, #root, .App{
+html, body, #root{
   height:100%;
   width: 100%;
   margin:0;
@@ -11,6 +11,7 @@ button span{
 .App{
   display: flex;
   font-family: 'Raleway', sans-serif;;
+  min-height: 100%;
 }
 .minor{
   width: 30%;
@@ -132,6 +133,9 @@ button span{
   width: 70%;
   background-color: #100e1d;
   color: white;
+}
+.major p{
+  text-align: center;
 }
 .degrees, .week-forecast, .features-page{
   padding: 1em 5vw;
